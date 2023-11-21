@@ -434,37 +434,23 @@ int main()
     cube2.setTextureProperty(diffMap, specMap);
     
     
-    addTree(glm::vec2(13.0,13.0),7);
-    addTree(glm::vec2(13.0, -13.0), 7);
-    addTree(glm::vec2(-13.0, 13.0), 6);
-    addTree(glm::vec2(-13.0, -13.0), 6);
+    for (int i = 0; i < 70; ++i) {	
+        // Random x and y coordinates within a certain range, adjust as needed
+        float randomX = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 60.0 - 30.0; // Range: -30.0 to 30.0
+        float randomY = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 60.0 - 30.0; // Range: -30.0 to 30.0
 
-    addTree(glm::vec2(0.0, 13.0), 6);
-    addTree(glm::vec2(13.0, 0.0), 7);
-    addTree(glm::vec2(-13.0, 0.0), 7);
-    addTree(glm::vec2(0.0, -13.0), 6);
-
-    addTree(glm::vec2(9.0, 9.0), 5);
-    addTree(glm::vec2(9.0, -9.0), 5);
-    addTree(glm::vec2(-9.0, 9.0), 5);
-    addTree(glm::vec2(-9.0, -9.0), 5);
-
-    addTree(glm::vec2(0.0, 9.0), 5);
-    addTree(glm::vec2(9.0, 0.0), 4);
-    addTree(glm::vec2(-9.0, 0.0), 5);
-    addTree(glm::vec2(0.0, -9.0), 4);
-
-    addTree(glm::vec2(3.0, 3.0), 7);
-    addTree(glm::vec2(3.0, -3.0), 6);
-    addTree(glm::vec2(-3.0, 3.0), 7);
-    addTree(glm::vec2(-3.0, -3.0), 6);
-
-    addTree(glm::vec2(0.0, 3.0), 7);
-    addTree(glm::vec2(3.0, 0.0), 6);
-    addTree(glm::vec2(-3.0, 0.0), 7);
-    addTree(glm::vec2(0.0, -3.0), 6);
-
-    addTree(glm::vec2(0.0, 0.0), 8);
+        // Assuming treeParameter is also random, adjust as needed
+        int randomParameter = rand() % 4 + 5; // Random parameter between 0 and 9
+        
+        float x = randomX - floor(randomX);
+        float y = randomY - floor(randomY);
+        
+        //cout<< randomX-x<<" "<< randomY-y <<endl;
+        
+        
+        // Call the addTree function with the random coordinates and parameter
+        addTree(glm::vec2(randomX-x, randomY-y), randomParameter);
+    }
 
 
     Cube wood(glm::vec3(0.341, 0.075, 0.075), glm::vec3(0.341, 0.341, 0.341));
@@ -478,7 +464,7 @@ int main()
 
 
     //Land
-    float gridSize = 15;
+    float gridSize = 30;
     for (float i = -gridSize; i < gridSize; i = i + 1.0f)
     {
         for (float j = -gridSize; j < gridSize; j = j + 1.0f)
