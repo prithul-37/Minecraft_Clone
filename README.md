@@ -1,6 +1,6 @@
 # Minecraft_Clone
 
-This project is made usin openGL 3.3 and CPP.
+This project is made using openGL 3.3 and CPP.
 This game is inspired from MINECRAFT.
 
 
